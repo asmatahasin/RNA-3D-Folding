@@ -14,18 +14,24 @@ sequence - (string) The RNA sequence. For test_sequences.csv, this is guaranteed
 temporal_cutoff - (string) The date in yyyy-mm-dd format that the sequence was published. See Additional Notes.
 description - (string) Details of the origins of the sequence. For a few targets, additional information on small molecule ligands bound to the RNA is included. You don't need to make predictions for these ligand coordinates.
 all_sequences - (string) FASTA-formatted sequences of all molecular chains present in the experimentally solved structure. In a few cases this may include multiple copies of the target RNA (look for the word "Chains" in the header) and/or partners like other RNAs or proteins or DNA. You don't need to make predictions for all these molecules; if you do, just submit predictions for sequence. Some entries are blank.
+
+
 [train/validation]_labels.csv - experimental structures.
 
 ID - (string) that identifies the target_id and residue number, separated by _. Note: residue numbers use one-based indexing.
 resname - (character) The RNA nucleotide ( A, C, G, or U) for the residue.
 resid - (integer) residue number.
 x_1,y_1,z_1,x_2,y_2,z_2,… - (float) Coordinates (in Angstroms) of the C1' atom for each experimental RNA structure. There is typically one structure for the RNA sequence, and train_labels.csv curates one structure for each training sequence. However, in some targets the experimental method has captured more than one conformation, and each will be used as a potential reference for scoring your predictions. validation_labels.csv has examples of targets with multiple reference structures (x_2,y_2,z_2, etc.).
-sample_submission.csv
 
+
+sample_submission.csv
 Same format as train_labels.csv but with five sets of coordinates for each of your five predicted structures (x_1,y_1,z_1,x_2,y_2,z_2,…x_5,y_5,z_5).
+
+
 Source Data:
 kaggle competitions download -c stanford-rna-3d-folding
 Kaggale
+
 
 Citation: 
 Shujun He, CASP16 organizers, CASP16 RNA experimentalists, RNA-Puzzles consortium, VFOLD team, Rachael Kretsch, Alissa Hummer, Andrew Favor, Walter Reade, Maggie Demkin, Rhiju Das, et al. Stanford RNA 3D Folding. https://kaggle.com/competitions/stanford-rna-3d-folding, 2025. Kaggle.
